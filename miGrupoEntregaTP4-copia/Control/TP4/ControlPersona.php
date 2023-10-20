@@ -80,14 +80,9 @@ class ControlPersona
         }
         return $objPersona;
     }
-    function agregarPersonaFaker()
-    {
-        // $faker = vendor\fakerphp\faker\Factory::create('es_ES');
-        //$faker = Faker\Factory::create('es_ES');
+    function agregarPersonaFaker()    {
+        
         $faker = Faker\Factory::create("es_ES");
-
-
-
 
         $persona = new Persona();
         $nroDni = $faker->dni();

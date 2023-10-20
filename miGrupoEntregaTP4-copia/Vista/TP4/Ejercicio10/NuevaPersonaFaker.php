@@ -13,22 +13,35 @@ include_once(STRUCTURE_PATH . "head.php");
       $datos = data_submitted();
       $persona = new ControlPersona();
       $datosPersona = $persona->agregarPersonaFaker();
-      if ($datosPersona instanceof Persona) {
-        echo "Datos persona: <br>
-        Nombre: " . $datosPersona->getNombre() . "<br>" .
-          "Apellido: " . $datosPersona->getApellido() . "<br>" .
-          "DNI: " . $datosPersona->getNroDni() . "<br>" .
-          "Fecha Nacimiento: " . $datosPersona->getFechaNac() . "<br>" .
-          "Telefono: " . $datosPersona->getTelefono() . "<br>" .
-          "Domicilio: " . $datosPersona->getDomicilio() . "<br>" .
-          "------------------------------------------<br>";
-      } else {
-        echo "No se registran datos.";
-      }
-
       ?>
+      <div class="row justify-content-md-center align-items-center gx-3 gy-3 p-5">
+        <?php
+        if ($datosPersona instanceof Persona) {
+        ?>
+          <div class="card" style="width: 18rem;background-color:#b1f8a3;margin-left:40%;margin-top:2%">
+            <div class="card-body">
+              <h5 class="card-title" style="text-align: center">Muy bien!</h5>
+              <h6 class="card-subtitle mb-2 text-muted"></h6>
+              <p class="card-text">Se ha ingresado una nueva persona a la base de datos.<br>
+                Nombre: <?php echo $datosPersona->getNombre() ?><br>
+                Apellido: <?php echo $datosPersona->getApellido() ?><br>
+                Dni: <?php echo $datosPersona->getNroDni() ?><br>
+                Direccion: <?php echo $datosPersona->getDomicilio() ?><br>
+                Telefono: <?php echo $datosPersona->getTelefono() ?><br>
+                Fecha nacimiento: <?php echo $datosPersona->getFechaNac()?><br>                
+              <a href="../../../index.php" class="card-link">Ir a la lista de personas</a>
+            </div>
+          </div>
+
+        <?php
+        } else {
+          echo "No se registran datos.";
+        }
+        ?>
+      </div>
+
       <div class="d-flex justify-content-end align-items-end mt-4">
-        <a href="autosPersonas.php" class="btn btn-primary">Volver</a>
+        <a href="../../../index.php" class="btn btn-primary">Volver</a>
       </div>
     </div>
   </div>
