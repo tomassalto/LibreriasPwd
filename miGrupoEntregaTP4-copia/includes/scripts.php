@@ -1,0 +1,1 @@
+<script src="<?php echo BASE_URL ?>Vista/js/bootstrap.bundle.min.js"></script>
